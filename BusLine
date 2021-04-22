@@ -1,0 +1,145 @@
+package com.JovicaIgnjatic;
+
+import java.io.Serializable;
+import java.util.*;
+
+public class BusLine implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private List<Station> lineStations = new LinkedList<>();
+	private String name;
+	private int id;
+	
+	public int getId() {
+		return id;
+	}
+
+	public BusLine(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public List<Station> getLineStations() {
+		return lineStations;
+	}
+
+	public boolean isEndingStation(Station station){
+		return this.getEndingStation().equals(station);
+	}
+	public boolean isStarting(Station station){
+		return this.getStartingStation().equals(station);
+	}
+	public Station getEndingStation(){
+		return this.lineStations.get(lineStations.size()-1);
+	}
+	public Station getStartingStation(){
+		return this.lineStations.get(0);
+	}
+	public boolean addArrival (int hour, int minute, Station station){
+		if(lineStations.contains(station)){
+			station.setArrival(hour, minute);
+			System.out.println("Arrival added for: "+station);
+			return true;
+		}
+		System.out.println("No "+station+" on this line");
+		return false;
+	}
+	public boolean addDeparture (int hour, int minute, Station station){
+		if(lineStations.contains(station)){
+			station.setDeparture(hour, minute);
+			System.out.println("Departure added for: "+station);
+			return true;
+		}
+		System.out.println("No "+station+" on this line");
+		return false;
+	}
+	public boolean addStation(Station station) {
+		if(station!=null) {
+			if(!containsStation(station)) {
+				lineStations.add(station);
+				System.out.println(station + " added to bus line: " + this.getName());
+				return true;
+			}
+			System.out.println("station already exists");
+		}
+		System.out.println("null station");
+		return false;
+	}
+	
+	public boolean removeStation(String station) {
+		if(station!=null) {
+			lineStations.remove(station);
+			System.out.println(station.toUpperCase()+" removed from bus line: "+this.getName());
+			return true;
+		}
+		return false;
+	}
+//.......................................................................
+
+
+
+	public boolean containsStation(Station station) {
+		for(Station st:lineStations) {
+			if(st.getName().equalsIgnoreCase(station.getName())) {
+//				System.out.println(st.getName()+" is going through "+this.getName());
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int amountOfRemainingStations(int index) {
+		return this.lineStations.size()-index;
+	}
+
+	private boolean checkStation(String station) {
+		if(lineStations.isEmpty()) {
+			return true;
+		}
+		int o = 0;
+		for(int i = 0; i< lineStations.size(); i++) {
+			if(lineStations.get(i).getName().equalsIgnoreCase(station)) {
+				o++;
+			}
+		}
+
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "BusLine" +
+				"name='" + name + '\'' +
+				", id=" + id;
+	}
+
+	//gives out num of index in a specific bus line
+	public int indexOfStationinBusLine(Station s) {
+		for(int i = 0; i<this.getLineStations().size(); i++) {
+			if(this.getLineStations().get(i).getName().equalsIgnoreCase(s.getName())) {
+//				System.out.println(busLine.getLineStations().get(i).getName());
+//				System.out.println(s.getName());
+				return i;
+			}
+		}
+		System.out.println("Element doesn't exist!!");
+		return 0;
+	}
+	public Station getStation(String station){
+		for(Station station1 : lineStations){
+			if(station1.getName().equalsIgnoreCase(station)){
+				return station1;
+			}
+		}
+		return null;
+	}
+	public void allBusStations() {
+		for(Station s : lineStations) {
+			System.out.println(s);
+		}
+	}
+}

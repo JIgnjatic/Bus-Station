@@ -1,0 +1,27 @@
+Doboj - Bihac,0,3
+Doboj,0,11,10,11,30
+Banja Luka,2,12,30,12,45
+Bihac,4,14,30,14,45
+Bihac - Doboj,10,3
+Bihac,4,14,30,14,45
+Banja Luka,2,12,30,12,45
+Doboj,0,11,10,11,30
+Zagreb - Sarajevo,1,4
+Zagreb,5,10,15,10,30
+Banja Luka,2,12,10,12,20
+Doboj,0,13,20,13,35
+Sarajevo,9,15,30,15,40
+Sarajevo - Zagreb,11,4
+Sarajevo,9,15,30,15,40
+Doboj,0,13,20,13,35
+Banja Luka,2,12,10,12,20
+Zagreb,5,10,15,10,30
+Sarajevo - Bihac,2,4
+Sarajevo,9,7,10,7,20
+Doboj,0,8,10,8,20
+Banja Luka,2,9,10,9,20
+Bihac,4,11,20,11,30
+Sarajevo - Beograd,3,3
+Sarajevo,9,7,10,7,20
+Doboj,0,8,10,8,20
+Beograd,7,10,10,10,20

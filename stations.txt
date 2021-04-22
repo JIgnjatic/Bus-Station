@@ -1,0 +1,13 @@
+Doboj,0
+Teslic,1
+Banja Luka,2
+Prijedor,3
+Bihac,4
+Zagreb,5
+Beograd,7
+Skopje,8
+Sarajevo,9
+Novi Sad,10
+Ljubljana,11
+Nis,12
+Budimpesta,13
